@@ -13,10 +13,10 @@
  */
 
 function maxLevelSum(root: TreeNode | null): number {
-    return bfs(root);
+    return dfs(root);
 };
 
-function bfs(root: TreeNode | null): number {
+function dfs(root: TreeNode | null): number {
     if (!root) {
         return 0;
     }

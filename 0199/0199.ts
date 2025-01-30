@@ -13,32 +13,32 @@
  */
 
 function rightSideView(root: TreeNode | null): number[] {
-    return bfs(root);
+    return dfs(root);
 };
 
 
-function bfs(root: TreeNode | null): number[] {
+function dfs(root: TreeNode | null): number[] {
     if (!root) {
         return [];
     }
 
     const result: number[] = [];
-    const queue: {node: TreeNode, depth: number}[] = [];
-    queue.push({node: root, depth: 0});
+    const queue: { node: TreeNode, depth: number }[] = [];
+    queue.push({ node: root, depth: 0 });
 
     while (queue.length > 0) {
-        const {node, depth} = queue.shift();
+        const { node, depth } = queue.shift();
 
         if (queue.length === 0 || depth !== queue[0].depth) {
             result.push(node.val);
         }
 
         if (node.left) {
-            queue.push({node: node.left, depth: depth + 1});
+            queue.push({ node: node.left, depth: depth + 1 });
         }
 
         if (node.right) {
-            queue.push({node: node.right, depth: depth + 1});
+            queue.push({ node: node.right, depth: depth + 1 });
         }
     }
 

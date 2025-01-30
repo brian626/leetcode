@@ -15,14 +15,14 @@ function highestPeak(isWater: number[][]): number[][] {
 
     while (waterCells.length > 0) {
         const waterCell = waterCells.shift();
-        bfs(height, waterCell);
+        dfs(height, waterCell);
     }
 
     return height;
 };
 
 
-function bfs(height: number[][], waterCell: number[]) {
+function dfs(height: number[][], waterCell: number[]) {
     let currentHeight = 0;
 
     let iterations = 0;
